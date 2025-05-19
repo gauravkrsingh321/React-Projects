@@ -55,7 +55,9 @@ yarn dev
 
 Open http://localhost:3000 in your browser.
 
-💡 Usage
+
+
+## 💡 Usage
 
 Click "Add Note" to create a new paste.
 
