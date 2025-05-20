@@ -23,7 +23,7 @@ export const pasteSlice = createSlice({
         state.pastes[index] = paste;
       }
       localStorage.setItem("pastes", JSON.stringify(state.pastes))
-      toast.success('Paste Updated Successfully');
+      // toast.success('Paste Updated Successfully');
     },
     resetAllPastes: (state,action) => {
       state.pastes = [];

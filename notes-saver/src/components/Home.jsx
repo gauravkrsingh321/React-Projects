@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router'
 import { addToPastes, updateToPastes } from '../redux/pasteSlice'
+import toast from 'react-hot-toast'
 
 function Home() {
   const [title, setTitle] = useState('')
@@ -9,8 +10,13 @@ function Home() {
   const [searchParams, setSearchParams] = useSearchParams()
   const pasteId = searchParams.get("pasteId") //from query parameter
   const dispatch = useDispatch();
+  const allPastes = useSelector((state)=>state.paste.pastes)
 
   const createPaste = ()=> {
+      if (!title.trim() || !value.trim()) {
+        toast.error("Title and content cannot be empty");
+        return;
+      }
       const paste = {
         title:title,
         content:value,
@@ -21,6 +27,7 @@ function Home() {
       if(pasteId) {
         //update
         dispatch(updateToPastes(paste))
+        toast.success('Paste Updated Successfully');
       }
       else {
         //create
@@ -32,6 +39,14 @@ function Home() {
       setValue("");
       setSearchParams({})
   }
+
+  useEffect(()=>{
+    if(pasteId) {
+      const specificPaste =allPastes.find((p)=> p._id === pasteId)
+      setTitle(specificPaste.title)
+      setValue(specificPaste.content)
+    }
+  },[pasteId])
 
   return (
     <div className='flex flex-col'>

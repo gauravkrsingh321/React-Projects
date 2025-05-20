@@ -112,7 +112,8 @@ function Paste() {
                           <button
                             className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground h-10 py-2 px-2 rounded-[0.2rem] bg-white dark:bg-black border dark:border-gray-600 hover:bg-transparent group hover:border-pictonBlue-500"
                             onClick={() => updatePasteById(paste)}
-                          >
+                          > 
+                          <NavLink to={`/?pasteId=${paste?._id}`}>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="20"
@@ -129,9 +130,10 @@ function Paste() {
                               <path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"></path>
                               <path d="m15 5 3 3"></path>
                             </svg>
+                          </NavLink>  
                           </button>
                           <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground h-10 py-2 px-2 rounded-[0.2rem] bg-white dark:bg-black border dark:border-gray-600 hover:bg-transparent group hover:border-indigo-500">
-                            <NavLink to="/pastes/:id">
+                            <NavLink to={`/pastes/${paste?._id}`}>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="20"
