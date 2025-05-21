@@ -50,8 +50,8 @@ function Home() {
 
   return (
     <div className='flex flex-col'>
-      <div className=''>
-      <input className='p-2 min-w-[64%] mr-4 border-white border rounded-2xl mt-2' type="text" 
+      <div className='text-sm sm:text-md'>
+      <input className='p-2 sm:min-w-[68%] mr-4 border-white border rounded-2xl mt-2 sm:mt-4' type="text" 
       placeholder='Enter title here'
       value={title} 
       onChange={(e)=>setTitle(e.target.value)}/>
@@ -63,9 +63,9 @@ function Home() {
       </button>
     </div>
 
-    <div className='mt-8'>
+    <div className='mt-5 mb-4'>
        <textarea 
-       className='rounded-2xl bg-black mt-4 min-w-[500px] p-4'
+       className='rounded-2xl bg-black mt-4 text-sm sm:text-lg min-w-[380px] sm:min-w-[500px] p-4'
        value={value}
        placeholder='Enter content here'
        onChange={(e)=>setValue(e.target.value)}
